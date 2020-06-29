@@ -18,7 +18,7 @@ const forecast = ((lat, long, callback) => {
                 feelslike: current.feelslike,
                 observation_time:current.observation_time
             }
-            forecasteData="temperature :"+ data.temp+" degrees but feels like :" +data.feelslike+" degrees";
+            forecasteData="temperature :"+ data.temp+" degrees but feels like :" +data.feelslike+" degrees. data gathered around:"+data.observation_time;
             callback(undefined, forecasteData);
         }
     })
