@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start":"node src/app.js"
+  
   },
   "keywords": [],
   "author": "",
@@ -12,8 +13,6 @@
   "dependencies": {
     "express": "^4.17.1",
     "hbs": "^4.1.1",
-    "postman-request": "^2.88.1-postman.23",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "postman-request": "^2.88.1-postman.23"
   }
 }
