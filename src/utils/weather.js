@@ -19,7 +19,7 @@ const forecast = ((lat, long, callback) => {
                 observation_time: current.observation_time,
                 icon: current.weather_icons[0]
             }
-            forecasteData = "Climate condition" + current.weather_descriptions[0] + "\ntemperature :" + data.temp + " degrees but feels like :" + data.feelslike + " degrees. Data gathered around:" + data.observation_time;
+            forecasteData = "Climate condition: " + current.weather_descriptions[0] + ". Current Temperature: " + data.temp + " degrees but feels like: " + data.feelslike + " degrees. Data gathered around: " + data.observation_time;
             callback(undefined, forecasteData, data.icon);
         }
     })

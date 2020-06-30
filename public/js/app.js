@@ -1,4 +1,4 @@
-console.log("done!!");
+
 
 const submitHandler = (address) => {
     fetch('/weather?address=' + address)
@@ -7,18 +7,16 @@ const submitHandler = (address) => {
                 if (data.error) {
                     console.log(data.error);
                     //alert(data.error);
-                    errorMsg.textContent=data.error;
-                    responseMsg.textContent="";
+                    errorMsg.textContent = data.error;
+                    responseMsg.textContent = "";
                     icon.style.visibility = 'hidden';
                 }
                 else {
-                   
-                    let textMsg="Location: "+data.location.concat(data.forecast);
-                    errorMsg.textContent="";
-                    //alert(textMsg);
-                    responseMsg.textContent=textMsg;
-                    icon.src=data.icon;
-                    //var img=document.getElementById('icon');
+
+                    errorMsg.textContent = "Location: " + data.location;
+
+                    responseMsg.textContent = data.forecast;
+                    icon.src = data.icon;
                     icon.style.visibility = 'visible';
                 }
             })
@@ -26,21 +24,21 @@ const submitHandler = (address) => {
         .catch(error => {
             console.log(error);
             // alert(error);
-            errorMsg.textContent=error;
-            responseMsg.textContent="";
+            errorMsg.textContent = error;
+            responseMsg.textContent = "";
             icon.style.visibility = 'hidden';
         })
 }
 
 const weatherForm = document.querySelector('form');
-const addressToBeSearched=document.querySelector('input');
-const errorMsg= document.querySelector('#errorMsg');
-const responseMsg= document.querySelector('#resMsg');
-const icon=document.querySelector("#icon");
+const addressToBeSearched = document.querySelector('input');
+const errorMsg = document.querySelector('#errorMsg');
+const responseMsg = document.querySelector('#resMsg');
+const icon = document.querySelector("#icon");
 
-weatherForm.addEventListener('submit',(event)=>{
+weatherForm.addEventListener('submit', (event) => {
     event.preventDefault();
     console.log('testing...');
-    errorMsg.textContent="Loading..."
+    errorMsg.textContent = "Loading..."
     submitHandler(addressToBeSearched.value);
 })
