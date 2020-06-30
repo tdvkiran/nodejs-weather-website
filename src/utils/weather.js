@@ -11,15 +11,16 @@ const forecast = ((lat, long, callback) => {
             callback('caonnt find the location, please try again', undefined);
         }
         else {
-            const {current}=body;
+            const { current } = body;
             //console.log(body);
             const data = {
                 temp: current.temperature,
                 feelslike: current.feelslike,
-                observation_time:current.observation_time
+                observation_time: current.observation_time,
+                icon: current.weather_icons[0]
             }
-            forecasteData="temperature :"+ data.temp+" degrees but feels like :" +data.feelslike+" degrees. data gathered around:"+data.observation_time;
-            callback(undefined, forecasteData);
+            forecasteData = "Climate condition" + current.weather_descriptions[0] + "\ntemperature :" + data.temp + " degrees but feels like :" + data.feelslike + " degrees. Data gathered around:" + data.observation_time;
+            callback(undefined, forecasteData, data.icon);
         }
     })
 })

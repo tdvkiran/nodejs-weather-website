@@ -51,3 +51,6 @@ button{
     padding: 8px;
     
 }
+#icon{
+visibility: hidden;
+}

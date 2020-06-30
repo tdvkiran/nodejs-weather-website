@@ -9,13 +9,17 @@ const submitHandler = (address) => {
                     //alert(data.error);
                     errorMsg.textContent=data.error;
                     responseMsg.textContent="";
+                    icon.style.visibility = 'hidden';
                 }
                 else {
                    
-                    let textMsg=data.location.concat(" "+data.forecast);
+                    let textMsg="Location: "+data.location.concat(data.forecast);
                     errorMsg.textContent="";
                     //alert(textMsg);
                     responseMsg.textContent=textMsg;
+                    icon.src=data.icon;
+                    //var img=document.getElementById('icon');
+                    icon.style.visibility = 'visible';
                 }
             })
         })
@@ -24,6 +28,7 @@ const submitHandler = (address) => {
             // alert(error);
             errorMsg.textContent=error;
             responseMsg.textContent="";
+            icon.style.visibility = 'hidden';
         })
 }
 
@@ -31,6 +36,7 @@ const weatherForm = document.querySelector('form');
 const addressToBeSearched=document.querySelector('input');
 const errorMsg= document.querySelector('#errorMsg');
 const responseMsg= document.querySelector('#resMsg');
+const icon=document.querySelector("#icon");
 
 weatherForm.addEventListener('submit',(event)=>{
     event.preventDefault();
